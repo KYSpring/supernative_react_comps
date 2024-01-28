@@ -104,7 +104,7 @@
 
 .rc_upload_image {
     height: 48px;
-    width: 48px;
+    width: 48px !important;
 }
 
 .rc_upload_title {
