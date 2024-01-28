@@ -1,0 +1,23 @@
+.rc_progress {
+    position: relative;
+    height: 50px;
+    width: 100%;
+}
+.rc_progress_wrapper {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    margin: 8px 0px 0px 0px;
+    background: #EDF2F7;
+    border-radius: 5px;
+}
+.rc_progress_inner {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #FEC04F;
+    border-radius: 5px;
+}
+.rc_progress_info {
+
+}

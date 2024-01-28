@@ -1,0 +1,133 @@
+.rc_uploader_wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 500px;
+    transition: 0.2s;
+    flex-flow: column;
+    justify-content: center;
+    height: 342px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+    border-radius: 10px;
+    /* background-image: url(../../assets/bg-new-file.png); */
+    background-size: contain;
+    transform: scale(1); /* 初始状态 */
+    transition: transform 0.5s ease; /* 过渡效果，持续时间，以及缓动函数 */
+}
+.rc_need_bgimg {
+    background-image: url(../../assets/bg-new-file.png);
+}
+
+.rc_rotate_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* 设置背景图片 */
+    background-image: url(../../assets/bg-new-file.png);
+    /* 设置背景图片不重复 */
+    background-repeat: no-repeat;
+    /* 设置宽度和高度，这里设置为contain，图片将被缩放以适应元素 */
+    background-size: contain;
+    /* 设置背景图片的初始位置 */
+    background-position: center;
+    transform-origin: center center;
+    border-radius: 50%;
+    animation: rotate_bg 10s linear infinite;
+
+}
+@keyframes rotate_bg {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: scaleX(1.5) scaleY(0.8) rotate(90deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    75% {
+        transform: scaleX(1.5) scaleY(0.8) rotate(270deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.rc_zoom_in {
+    transform: scale(1.2);
+}
+.rc_red_dashed_border {
+    border: 2px dashed rgb(255, 136, 0); /* 红色虚线，边框宽度为2px */
+    border-radius: 4px;
+  }
+.rc_file_droparea {
+    position: relative;
+    box-sizing: border-box;
+    border: 7px solid #dbe3fd;
+    border-radius: 10px;
+    width: 370px;
+    text-align: center;
+    background: white;
+}
+.rc_file_droparea-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;;
+    justify-content: center;
+    align-items: center;
+    padding: 22px 32px !important;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* 定义名为 flip-horizontal 的动画 */
+@keyframes flip_horizontal {
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+/* 应用动画到一个图片元素上 */
+.rc_flipping_image {
+    animation: flip_horizontal 1s linear infinite;
+}
+
+.rc_upload_image {
+    height: 48px;
+}
+
+.rc_upload_title {
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Mulish;
+    font-style: normal;
+    margin-top: 10px;
+    color: #242424;
+    font-family: Mulish;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+}
+.rc_upload_title_underline {
+    color: #7190f6;
+    text-decoration: underline;
+}
+.rc_upload_sub_title {
+    color: #747474;
+    text-align: center;
+    font-family: Mulish;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 10px 0 20px;
+    width: 170px;
+}
