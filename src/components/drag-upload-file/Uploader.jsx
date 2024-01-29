@@ -195,7 +195,6 @@ export const DragAndDrop = () => {
               </div>
             )
           }
-          
           <input 
             className='file-input'
             ref={inputRef}
