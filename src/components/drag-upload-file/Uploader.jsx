@@ -10,6 +10,7 @@ export const DragAndDrop = () => {
   const [uploadFail, setUploadFail] = useState(false);
   const [fileName, setFileName] = useState('');
   const [percent, setPercent] = useState(0);
+  const [videoUrl, setVideoUrl] = useState('');
 
   const resetState = () => {
     setUploadFail(false);
@@ -19,6 +20,7 @@ export const DragAndDrop = () => {
 
   const dropZoneRef = useRef(null);
   const inputRef = useRef(null);
+  const videoPreviewRef = useRef(null);
 
   const verifyFileIsImageMovieAudio = (file) => {
     // verifies the file extension is one we support.
@@ -70,8 +72,10 @@ export const DragAndDrop = () => {
             setUploadFail(true);
         } else {
           // Get video player
-          vPreviewDom.src = URL.createObjectURL(file);
+          const newUrl = URL.createObjectURL(file);
+          vPreviewDom.src = newUrl;
           vidDom.load();
+          setVideoUrl(newUrl);
           file_to_be_translated = file;
         }
     } else {
@@ -101,7 +105,7 @@ export const DragAndDrop = () => {
     setNeedFlip(true);
     setTimeout(()=>{
       setNeedFlip(false);
-    }, 1000)
+    }, 2000);
     if (uploadFail) return;
     setTimeout(()=>{
       setFileName(fileList?.[0].name);
@@ -135,6 +139,11 @@ export const DragAndDrop = () => {
     top: 0,
   }
 
+  const videoStyle = {
+    width: '100%',
+    height: '100%',
+  }
+
   return (
     <div className={`rc_uploader_wrapper ${!fileName? 'rc_need_bgimg':''} ${!!zoomState? 'rc_zoom_in':''}`}>
       {
@@ -148,7 +157,21 @@ export const DragAndDrop = () => {
         <div
           className={`rc_file_droparea-inner ${!!zoomState? 'rc_red_dashed_border':''}`}
         >
-          <img src={uploadFileIcon} alt="" className={`rc_upload_image ${!!needFlip? 'rc_flipping_image':''}`}/>
+          {
+            fileName? (
+              <div
+                className={`rc_upload_image rc_video_border ${!!needFlip? 'rc_flipping_video':''}`}
+              >
+                <video 
+                  ref={videoPreviewRef} 
+                  style={videoStyle} 
+                  src={videoUrl}
+                />
+              </div>
+            ):(
+              <img src={uploadFileIcon} alt="" className={`rc_upload_image  ${!!needFlip? 'rc_flipping_image':''}`} />
+            )
+          }
           {
             !!fileName? (
               <div className={'rc_upload_title'}>
