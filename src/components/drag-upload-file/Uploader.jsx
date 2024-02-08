@@ -145,10 +145,12 @@ export const DragAndDrop = () => {
   }
 
   return (
-    <div className={`rc_uploader_wrapper ${!fileName? 'rc_need_bgimg':''} ${!!zoomState? 'rc_zoom_in':''}`}>
-      {
+    // <div className={`rc_uploader_wrapper ${!fileName? 'rc_need_bgimg':''} ${!!zoomState? 'rc_zoom_in':''}`}>
+    <div className={`rc_uploader_wrapper  ${!!zoomState? 'rc_zoom_in':''}`}>
+      <div className='rc_rotate_bg'/>
+      {/* {
         !!fileName? <div className='rc_rotate_bg'/>: null
-      }
+      } */}
       <div
         ref={dropZoneRef} onDragOver={onDragOver} onDrop={onDrop}
         onDragLeave={onDragLeave}
