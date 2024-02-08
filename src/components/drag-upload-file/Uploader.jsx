@@ -46,9 +46,9 @@ export const DragAndDrop = () => {
         previewFile(file);
     });
     setNeedFlip(true);
-    setTimeout(()=>{
-      setNeedFlip(false);
-    }, 1000)
+    // setTimeout(()=>{
+    //   setNeedFlip(false);
+    // }, 1000)
     if (uploadFail) return;
     setTimeout(()=>{
       setFileName(fileList?.[0].name);
@@ -103,9 +103,9 @@ export const DragAndDrop = () => {
         previewFile(file);
     });
     setNeedFlip(true);
-    setTimeout(()=>{
-      setNeedFlip(false);
-    }, 2000);
+    // setTimeout(()=>{
+    //   setNeedFlip(false);
+    // }, 2000);
     if (uploadFail) return;
     setTimeout(()=>{
       setFileName(fileList?.[0].name);

@@ -114,8 +114,8 @@
     animation-iteration-count: 1;
 }
 .rc_flipping_video {
-    animation: flip_horizontal_rev 2s linear forwards;
-    animation-iteration-count: 1;
+    animation: flip_horizontal_rev 2s linear infinite;
+    /* animation-iteration-count: 1; */
 }
 
 
