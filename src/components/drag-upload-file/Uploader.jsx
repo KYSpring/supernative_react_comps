@@ -189,9 +189,10 @@ export const DragAndDrop = () => {
             )
           }
           {
-            !!fileName? (
-              <Progress percent={percent} setPercent={setPercent} />
-            ): (
+            // !!fileName? (
+            //   <Progress percent={percent} setPercent={setPercent} />
+            // ): 
+            (
               <div className={'rc_upload_sub_title'}>
                 Supports WAV, MP3, and MP4 files up to 30 minutes long
               </div>
